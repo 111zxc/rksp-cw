@@ -1,0 +1,295 @@
+/* styles.css */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .header-logo {
+    margin: 0;
+  }
+  
+  .header-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-link,
+  .header-button {
+    margin-left: 1rem;
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .header-link:hover,
+  .header-button:hover {
+    text-decoration: underline;
+  }
+  
+  .product-list {
+    max-width: 1200px;
+    margin: 2rem auto;
+  }
+  
+  .product-list-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .product-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .product-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .product-link {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .product-name {
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-image {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .product-price {
+    font-weight: bold;
+  }
+  
+  /* Добавьте следующие стили в styles.css */
+
+/* Chat.js */
+.chat-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .message-container {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .message-content {
+    margin: 0;
+  }
+  
+  .message-sender {
+    font-weight: bold;
+  }
+  
+  .message-timestamp {
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  .message-input-container {
+    margin-top: 1rem;
+  }
+  
+  .message-input {
+    width: calc(100% - 70px); /* Adjust width based on your design */
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .message-send-button {
+    width: 60px;
+    padding: 0.5rem;
+    margin-left: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .message-send-button:hover {
+    background-color: #0056b3;
+  }
+
+  .register {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .register-title {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .register-input {
+    margin-bottom: 1rem;
+  }
+  
+  .register-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .register-input input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .register-button {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .register-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .register-message {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* Login.js */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .login-title {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .input-container {
+    margin-bottom: 1rem;
+  }
+  
+  .input-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .input-container input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* ProductDetail.js */
+.product-detail-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .product-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .product-detail-title {
+    margin: 0;
+  }
+  
+  .product-detail-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .product-detail-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .product-detail-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .product-detail-content {
+    margin-top: 1rem;
+  }
+  
+  .product-detail-label {
+    font-weight: bold;
+  }
+  
+  .product-detail-input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 0.5rem;
+  }
+  
+  .product-detail-message {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  
