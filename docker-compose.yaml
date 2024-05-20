@@ -1,0 +1,117 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: users
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  userservice:
+    build:
+      context: ./UserService
+      dockerfile: Dockerfile
+    container_name: userservice
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/users
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  productservice:
+    build:
+      context: ./ProductService
+      dockerfile: Dockerfile
+    container_name: productservice
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/products
+    depends_on:
+      - mongodb
+    ports:
+      - "8081:8081"
+
+  chatpostgres:
+    image: postgres:latest
+    container_name: chatpostgres
+    environment:
+      POSTGRES_DB: chats
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5433:5432"
+    volumes:
+      - chatpostgres-data:/var/lib/postgresql/data
+
+  chatservice:
+    build:
+      context: ./ChatService
+      dockerfile: Dockerfile
+    container_name: chatservice
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://chatpostgres:5432/chats
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+    depends_on:
+      - chatpostgres
+    ports:
+      - "8082:8082"
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+  authservice:
+    build:
+      context: ./AuthService
+      dockerfile: Dockerfile
+    container_name: authservice
+    environment:
+      REDIS_HOST: localhost
+      REDIS_PORT: 6379
+    depends_on:
+      - chatpostgres
+    ports:
+      - "8083:8083"
+
+  gateway:
+    build:
+      context: ./Gateway
+      dockerfile: Dockerfile
+    container_name: gateway
+    ports:
+      - "8084:8084"
+
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   container_name: frontend
+  #   ports:
+  #     - "80:80"
+
+volumes:
+  postgres-data:
+  chatpostgres-data:
+  mongo-data:
+  redis-data:
